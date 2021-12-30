@@ -1,0 +1,16 @@
+:root {
+  --icon-base: "\f2ed";
+}
+
+#todoList > li {
+  & label::after {
+    font-family: "Font Awesome 5 Free";
+    content: var(--icon-base);
+    // content: "\f2ed";
+    font-size: 1em;
+  }
+
+  & input {
+    display: none;
+  }
+}

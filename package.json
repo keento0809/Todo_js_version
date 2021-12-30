@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "sass": "^1.45.1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4"
   }
 }

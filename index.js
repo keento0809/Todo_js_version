@@ -31,11 +31,9 @@ function createList(lists = [], todoList) {
       return `
         <li>
         <label for="task${i}">${task.text}</label>
-        <span>
           <input type="checkbox" data-index=${i} id="task${i}" ${
         task.done ? "checked" : ""
       }/>
-        </span>
         </li>`;
     })
     .join("");
