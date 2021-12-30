@@ -2,10 +2,20 @@
   --icon-base: "\f2ed";
 }
 
+* {
+  padding: 0;
+  margin: 0;
+}
+
+#todoList {
+  list-style: none;
+}
+
 #todoList > li label::after {
   font-family: "Font Awesome 5 Free";
   content: var(--icon-base);
   font-size: 1em;
+  padding-left: 15px;
 }
 
 #todoList > li input {

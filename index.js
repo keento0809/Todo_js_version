@@ -1,12 +1,16 @@
 // Get DOM
 const title = document.querySelector("#title");
 const todoList = document.querySelector("#todoList");
-const todoInput = document.querySelector("[type=text]");
+const todoInput = document.querySelector("#typeTask");
 const addTodo = document.querySelector(".todoForm");
 
 const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-// const checks = document.querySelectorAll("[data-index]");
-// console.log(checks);
+const allTasks = document.querySelector("li");
+
+const searchInput = document.querySelector("#searchInput");
+const remainTasks = document.querySelectorAll("li");
+
+console.log(remainTasks);
 
 // Build out function
 function addList(e) {
@@ -40,6 +44,7 @@ function createList(lists = [], todoList) {
 }
 
 function taskDone(e) {
+  console.log(e.target);
   // skip this unless it's an input
   if (!e.target.matches("input")) return;
   const el = e.target;
@@ -56,8 +61,37 @@ function createNewLi(task) {
   todoList.append(li);
 }
 
+function getMatches(wordOnInput, remainTasks) {
+  return remainTasks.filter((task) => {
+    const regex = new RegExp(wordOnInput, "gi");
+    return task.match(regex);
+  });
+}
+
+function displayAnswers() {
+  const matches = getMatches(this.value, remainTasks);
+  const newHtml = matches
+    .map((task) => {
+      const regex = new RegExp(this.value, "gi");
+      const taskName = task.replace(
+        regex,
+        `<span class="hl">${this.value}</span>`
+      );
+      return `
+      <li>
+        <label for="task${this.index}">${taskName}</span>
+      </li>
+    `;
+    })
+    .join("");
+  todoList.innerHTML = newHtml;
+}
+
 // Hook up the event
 addTodo.addEventListener("submit", addList);
 todoList.addEventListener("click", taskDone);
+
+searchInput.addEventListener("change", displayAnswers);
+searchInput.addEventListener("keyup", displayAnswers);
 
 createList(tasks, todoList);
