@@ -20,3 +20,4 @@ function createNewLi(task) {
 
 // Hook up the event
 todoForm.addEventListener("submit", addList);
+// todoInput.addEventListener("change", addList);
