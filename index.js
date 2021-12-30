@@ -10,6 +10,7 @@ function addList(e) {
   e.preventDefault();
   const newTask = todoInput.value;
   createNewLi(newTask);
+  todoInput.value = "";
 }
 
 function createNewLi(task) {
