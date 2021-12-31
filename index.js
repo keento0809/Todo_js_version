@@ -3,14 +3,13 @@ const title = document.querySelector("#title");
 const todoList = document.querySelector("#todoList");
 const todoInput = document.querySelector("#typeTask");
 const addTodo = document.querySelector(".todoForm");
+// const childNode = document.querySelector("#todoList > li");
 
-const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+const tasks = [];
 const allTasks = document.querySelector("li");
 
 const searchInput = document.querySelector("#searchInput");
-const remainTasks = document.querySelectorAll("li");
-
-console.log(remainTasks);
+// const remainTasks = document.querySelectorAll("li");
 
 // Build out function
 function addList(e) {
@@ -21,12 +20,12 @@ function addList(e) {
     done: false,
   };
   tasks.push(newTask);
-  createList(tasks, todoList);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  this.reset;
-  console.log(tasks);
-  // createNewLi(text);
-  // todoInput.value = "";
+  // createList(tasks, todoList);
+  // localStorage.setItem("tasks", JSON.stringify(tasks));
+  // this.reset;
+  // console.log(tasks);
+  createNewLi(newTask.text);
+  todoInput.value = "";
 }
 
 function createList(lists = [], todoList) {
@@ -44,15 +43,10 @@ function createList(lists = [], todoList) {
 }
 
 function taskDone(e) {
-  console.log(e.target);
-  // skip this unless it's an input
-  if (!e.target.matches("input")) return;
-  const el = e.target;
-  const index = el.dataset.index;
-  tasks[index].done = !tasks[index].done;
+  console.log(this);
+  console.log(e);
   alert("Are you sure you've done this task?");
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-  createList(tasks, todoList);
+  todoList.removeChild(this);
 }
 
 function createNewLi(task) {
@@ -61,16 +55,26 @@ function createNewLi(task) {
   todoList.append(li);
 }
 
-function getMatches(wordOnInput, remainTasks) {
+function getMatches(val, remainTasks) {
   return remainTasks.filter((task) => {
-    const regex = new RegExp(wordOnInput, "gi");
+    const regex = new RegExp(val, "gi");
     return task.match(regex);
   });
 }
 
+let array = [];
+
+function updateList() {
+  array.push(this.value);
+}
+
 function displayAnswers() {
-  const matches = getMatches(this.value, remainTasks);
-  const newHtml = matches
+  const val = this.value;
+  const searchResult = getMatches(val, array);
+
+  console.log(searchResult);
+
+  const newHtml = searchResult
     .map((task) => {
       const regex = new RegExp(this.value, "gi");
       const taskName = task.replace(
@@ -89,9 +93,11 @@ function displayAnswers() {
 
 // Hook up the event
 addTodo.addEventListener("submit", addList);
-todoList.addEventListener("click", taskDone);
+todoInput.addEventListener("change", updateList);
+
+// todoList.addEventListener("click", taskDone);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
-createList(tasks, todoList);
+// createList(tasks, todoList);

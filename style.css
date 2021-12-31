@@ -1,5 +1,6 @@
 :root {
   --icon-base: "\f2ed";
+  --background: aqua;
 }
 
 * {
@@ -20,5 +21,9 @@
 
 #todoList > li input {
   display: none;
+}
+
+.hl {
+  background: var(--background);
 }
 /*# sourceMappingURL=style.css.map */

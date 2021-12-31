@@ -1,5 +1,6 @@
 :root {
   --icon-base: "\f2ed";
+  --background: aqua;
 }
 
 * {
@@ -23,4 +24,8 @@
   & input {
     display: none;
   }
+}
+
+.hl {
+  background: var(--background);
 }
