@@ -3,13 +3,11 @@ const title = document.querySelector("#title");
 const todoList = document.querySelector("#todoList");
 const todoInput = document.querySelector("#typeTask");
 const addTodo = document.querySelector(".todoForm");
-// const childNode = document.querySelector("#todoList > li");
 
 const tasks = [];
 const allTasks = document.querySelector("li");
 
 const searchInput = document.querySelector("#searchInput");
-// const remainTasks = document.querySelectorAll("li");
 
 // Build out function
 function addList(e) {
@@ -20,31 +18,12 @@ function addList(e) {
     done: false,
   };
   tasks.push(newTask);
-  // createList(tasks, todoList);
-  // localStorage.setItem("tasks", JSON.stringify(tasks));
-  // this.reset;
-  // console.log(tasks);
   createNewLi(newTask.text);
   todoInput.value = "";
 }
 
-function createList(lists = [], todoList) {
-  todoList.innerHTML = lists
-    .map((task, i) => {
-      return `
-        <li>
-        <label for="task${i}">${task.text}</label>
-          <input type="checkbox" data-index=${i} id="task${i}" ${
-        task.done ? "checked" : ""
-      }/>
-        </li>`;
-    })
-    .join("");
-}
-
 function taskDone(e) {
   console.log(this);
-  console.log(e);
   alert("Are you sure you've done this task?");
   todoList.removeChild(this);
 }
@@ -63,9 +42,13 @@ function getMatches(val, remainTasks) {
 }
 
 let array = [];
+let labels;
 
 function updateList() {
   array.push(this.value);
+  labels = document.querySelectorAll("li");
+  console.log(labels);
+  labels.forEach((task) => task.addEventListener("click", taskDone));
 }
 
 function displayAnswers() {
@@ -95,9 +78,5 @@ function displayAnswers() {
 addTodo.addEventListener("submit", addList);
 todoInput.addEventListener("change", updateList);
 
-// todoList.addEventListener("click", taskDone);
-
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
-
-// createList(tasks, todoList);
