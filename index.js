@@ -30,7 +30,9 @@ function taskDone(e) {
 
 function createNewLi(task) {
   const li = document.createElement("li");
-  li.textContent = task;
+  const label = document.createElement("label");
+  label.textContent = task;
+  li.append(label);
   todoList.append(li);
 }
 
