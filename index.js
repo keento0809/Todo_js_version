@@ -23,17 +23,19 @@ function addList(e) {
 }
 
 function taskDone(e) {
-  console.log(this);
   alert("Are you sure you've done this task?");
   todoList.removeChild(this);
 }
 
+// Create new li (task)
 function createNewLi(task) {
   const li = document.createElement("li");
   const label = document.createElement("label");
   label.textContent = task;
   li.append(label);
   todoList.append(li);
+  // console.log(tasks);
+  updateList(task);
 }
 
 function getMatches(val, remainTasks) {
@@ -46,10 +48,10 @@ function getMatches(val, remainTasks) {
 let array = [];
 let labels;
 
-function updateList() {
-  array.push(this.value);
+function updateList(task) {
+  array.push(task);
+  console.log(array);
   labels = document.querySelectorAll("li");
-  console.log(labels);
   labels.forEach((task) => task.addEventListener("click", taskDone));
 }
 
@@ -78,7 +80,7 @@ function displayAnswers() {
 
 // Hook up the event
 addTodo.addEventListener("submit", addList);
-todoInput.addEventListener("change", updateList);
+// todoInput.addEventListener("change", updateList);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
