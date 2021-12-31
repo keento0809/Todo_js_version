@@ -22,7 +22,15 @@ function addList(e) {
   todoInput.value = "";
 }
 
-function taskDone(e) {
+// Edit task
+function editTask(e) {
+  console.log(e);
+  const newText = this.querySelector("label").textContent;
+  console.log(newText);
+}
+
+// Delete task (done)
+function taskDone() {
   alert("Are you sure you've done this task?");
   todoList.removeChild(this);
 }
@@ -32,6 +40,7 @@ function createNewLi(task) {
   const li = document.createElement("li");
   const label = document.createElement("label");
   label.textContent = task;
+  label.contentEditable = true;
   li.append(label);
   todoList.append(li);
   // console.log(tasks);
@@ -50,9 +59,11 @@ let labels;
 
 function updateList(task) {
   array.push(task);
-  console.log(array);
+  // console.log(array);
   labels = document.querySelectorAll("li");
-  labels.forEach((task) => task.addEventListener("click", taskDone));
+  /* Temporary comment out */
+  // labels.forEach((task) => task.addEventListener("click", taskDone));
+  labels.forEach((task) => task.addEventListener("input", editTask));
 }
 
 function displayAnswers() {

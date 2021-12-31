@@ -13,6 +13,10 @@
 }
 
 #todoList > li {
+  & label br {
+    display: none;
+  }
+
   & label::after {
     font-family: "Font Awesome 5 Free";
     content: var(--icon-base);

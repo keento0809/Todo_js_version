@@ -12,6 +12,10 @@
   list-style: none;
 }
 
+#todoList > li label br {
+  display: none;
+}
+
 #todoList > li label::after {
   font-family: "Font Awesome 5 Free";
   content: var(--icon-base);
