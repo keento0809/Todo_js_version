@@ -33,9 +33,10 @@ function editTask(e) {
 
 // Delete task (done)
 function taskDone() {
-  console.log(this);
+  const done = this.parentNode;
+  console.log(done);
   alert("Are you sure you've done this task?");
-  todoList.removeChild(this);
+  todoList.removeChild(done);
 }
 
 // Create new li (task)
