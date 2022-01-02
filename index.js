@@ -38,7 +38,7 @@ function editTask(e) {
 function taskDone() {
   const done = this.parentNode;
   console.log(done);
-  alert("Are you sure you've done this task?");
+  confirm("Are you sure you've done this task?");
   todoList.removeChild(done);
 }
 
