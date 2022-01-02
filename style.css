@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
 :root {
   --icon-base: "\f2ed";
-  --background: aqua;
+  --background: rgba(248, 231, 131, 0.918);
   --borderColor: #ffdbdb;
   --font-family: "Mukta", sans-serif;
 }
@@ -16,22 +16,6 @@ input {
   display: inline-block;
   width: 180px;
   padding: 2px 0px 2px 5px;
-}
-
-input::-webkit-input-placeholder {
-  font-size: 1.1em;
-}
-
-input:-ms-input-placeholder {
-  font-size: 1.1em;
-}
-
-input::-ms-input-placeholder {
-  font-size: 1.1em;
-}
-
-input::placeholder {
-  font-size: 1.1em;
 }
 
 .main-container {
@@ -72,6 +56,9 @@ input::placeholder {
 
 #todoList > li span {
   display: inline-block;
+}
+
+#todoList > li span.highlight {
   padding: 10px 0;
 }
 
@@ -92,6 +79,11 @@ input::placeholder {
 
 .hl {
   background: var(--background);
+}
+
+#highlight {
+  background: var(--background);
+  padding: 0;
 }
 
 .fa-trash-alt {

@@ -53,6 +53,7 @@ function createNewLi(task) {
     return;
   }
   span.contentEditable = true;
+  span.classList.add("highlight");
   icon.classList.add("far");
   icon.classList.add("fa-trash-alt");
   li.append(span);
@@ -77,11 +78,24 @@ let icons;
 function updateList(task) {
   array.push(task);
   // console.log(array);
-  labels = document.querySelectorAll("li");
-  icons = document.querySelectorAll(".fa-trash-alt");
+  // labels = document.querySelectorAll("li");
+  // icons = document.querySelectorAll(".fa-trash-alt");
   /* Temporary comment out */
+  // labels.forEach((task) => task.addEventListener("keyup", editTask));
+  // icons.forEach((icon) => icon.addEventListener("click", taskDone));
+  addSpanEditTask();
+  addIconsTaskDone();
+}
+
+function addSpanEditTask() {
+  const labels = document.querySelectorAll("li");
   labels.forEach((task) => task.addEventListener("keyup", editTask));
-  icons.forEach((icon) => icon.addEventListener("click", taskDone));
+}
+
+function addIconsTaskDone() {
+  console.log("test works");
+  const icons2 = document.querySelectorAll(".fa-trash-alt");
+  icons2.forEach((icon) => icon.addEventListener("click", taskDone));
 }
 
 function displayAnswers() {
@@ -99,13 +113,14 @@ function displayAnswers() {
       );
       return `
       <li>
-        <span for="task${this.index}">${taskName}</span>
+        <span class="highlight">${taskName}</span>
         <i class="fa fa-trash-alt"></i>
       </li>
     `;
     })
     .join("");
   todoList.innerHTML = newHtml;
+  addIconsTaskDone();
 }
 
 // Hook up the event
