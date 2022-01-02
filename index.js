@@ -45,10 +45,23 @@ function taskDone() {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == doneText) array.splice(i, 1);
   }
+  // allDoneNotification(array);
+}
+
+function allDoneNotification(array) {
+  const complete = document.createElement("h2");
+  complete.textContent = "All tasks done!";
+
+  if (array.length === 0) {
+    todoList.append(complete);
+  } else if (array.length >= 1) {
+    todoList.removeChild(complete);
+  }
 }
 
 // Create new li (task)
 function createNewLi(task) {
+  // allDoneNotification(array);
   const li = document.createElement("li");
   const span = document.createElement("span");
   const icon = document.createElement("i");
@@ -64,9 +77,8 @@ function createNewLi(task) {
   li.append(span);
   li.append(icon);
   todoList.append(li);
-  // todoList.append(icon);
-  // console.log(tasks);
   updateList(task);
+  console.log(array.length);
 }
 
 function getMatches(val, remainTasks) {
@@ -82,7 +94,7 @@ let icons;
 
 function updateList(task) {
   array.push(task);
-  // console.log(array);
+  console.log(array.length);
   // labels = document.querySelectorAll("li");
   // icons = document.querySelectorAll(".fa-trash-alt");
   /* Temporary comment out */
@@ -98,7 +110,6 @@ function addSpanEditTask() {
 }
 
 function addIconsTaskDone() {
-  console.log("test works");
   const icons2 = document.querySelectorAll(".fa-trash-alt");
   icons2.forEach((icon) => icon.addEventListener("click", taskDone));
 }

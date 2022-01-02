@@ -43,6 +43,7 @@ input {
 
 #todoList h2 {
   margin-bottom: 20px;
+  text-align: center;
 }
 
 #todoList > li {
