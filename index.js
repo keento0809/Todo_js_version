@@ -27,8 +27,11 @@ function addList(e) {
 // Edit task
 function editTask(e) {
   console.log(e);
-  const newText = this.querySelector("label").textContent;
-  console.log(newText);
+  if (e.keyCode === 13) {
+    console.log("Enter");
+  }
+  // const newText = this.querySelector("label").textContent;
+  // console.log(newText);
 }
 
 // Delete task (done)
@@ -45,6 +48,10 @@ function createNewLi(task) {
   const span = document.createElement("span");
   const icon = document.createElement("i");
   span.textContent = task;
+  if (span.textContent == "") {
+    alert("Error! Enter your task correctly!");
+    return;
+  }
   span.contentEditable = true;
   icon.classList.add("far");
   icon.classList.add("fa-trash-alt");
@@ -73,7 +80,7 @@ function updateList(task) {
   labels = document.querySelectorAll("li");
   icons = document.querySelectorAll(".fa-trash-alt");
   /* Temporary comment out */
-  labels.forEach((task) => task.addEventListener("input", editTask));
+  labels.forEach((task) => task.addEventListener("keyup", editTask));
   icons.forEach((icon) => icon.addEventListener("click", taskDone));
 }
 

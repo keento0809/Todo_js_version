@@ -12,7 +12,7 @@
   list-style: none;
 }
 
-#todoList > li label br {
+#todoList > li span br {
   display: none;
 }
 
