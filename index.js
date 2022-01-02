@@ -99,7 +99,8 @@ function displayAnswers() {
       );
       return `
       <li>
-        <label for="task${this.index}">${taskName}</span>
+        <span for="task${this.index}">${taskName}</span>
+        <i class="fa fa-trash-alt"></i>
       </li>
     `;
     })

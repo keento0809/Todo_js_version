@@ -1,15 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
 :root {
   --icon-base: "\f2ed";
   --background: aqua;
+  --font-family: "Mukta", sans-serif;
 }
 
 * {
   padding: 0;
   margin: 0;
+  font-family: var(--font-family);
+}
+
+input {
+  display: inline-block;
+  width: 180px;
+  padding: 2px 0px 2px 5px;
+}
+
+.main-container {
+  text-align: center;
+}
+
+.inputTask {
+  display: block;
+  font-size: 1.2em;
 }
 
 #todoList {
   list-style: none;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+#todoList > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#todoList > li span {
+  display: inline-block;
 }
 
 #todoList > li span br {
@@ -23,18 +59,15 @@
   margin-left: 40px;
 }
 
-#todoList > li label::after {
-  font-family: "Font Awesome 5 Free";
-  content: var(--icon-base);
-  font-size: 1em;
-  padding-left: 15px;
-}
-
 #todoList > li input {
   display: none;
 }
 
 .hl {
   background: var(--background);
+}
+
+.fa-trash-alt {
+  color: #cc1735;
 }
 /*# sourceMappingURL=style.css.map */
