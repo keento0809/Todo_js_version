@@ -3,6 +3,7 @@
 :root {
   --icon-base: "\f2ed";
   --background: aqua;
+  --borderColor: #ffdbdb;
   --font-family: "Mukta", sans-serif;
 }
 
@@ -17,6 +18,10 @@ input {
   display: inline-block;
   width: 180px;
   padding: 2px 0px 2px 5px;
+}
+
+input::placeholder {
+  font-size: 1.1em;
 }
 
 .main-container {
@@ -34,16 +39,25 @@ input {
 #todoList {
   list-style: none;
   max-width: 200px;
-  margin: 0 auto;
+  margin: 40px auto;
+
+  & h2 {
+    margin-bottom: 20px;
+  }
 }
 
 #todoList > li {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border: 1px solid var(--borderColor);
+  padding: 0 10px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 4px 0.2px #f73b3b;
 
   & span {
     display: inline-block;
+    padding: 10px 0;
   }
 
   & span br {

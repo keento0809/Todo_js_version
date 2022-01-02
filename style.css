@@ -2,6 +2,7 @@
 :root {
   --icon-base: "\f2ed";
   --background: aqua;
+  --borderColor: #ffdbdb;
   --font-family: "Mukta", sans-serif;
 }
 
@@ -17,6 +18,22 @@ input {
   padding: 2px 0px 2px 5px;
 }
 
+input::-webkit-input-placeholder {
+  font-size: 1.1em;
+}
+
+input:-ms-input-placeholder {
+  font-size: 1.1em;
+}
+
+input::-ms-input-placeholder {
+  font-size: 1.1em;
+}
+
+input::placeholder {
+  font-size: 1.1em;
+}
+
 .main-container {
   text-align: center;
 }
@@ -29,7 +46,11 @@ input {
 #todoList {
   list-style: none;
   max-width: 200px;
-  margin: 0 auto;
+  margin: 40px auto;
+}
+
+#todoList h2 {
+  margin-bottom: 20px;
 }
 
 #todoList > li {
@@ -42,10 +63,16 @@ input {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border: 1px solid var(--borderColor);
+  padding: 0 10px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 2px 2px 4px 0.2px #f73b3b;
+          box-shadow: 2px 2px 4px 0.2px #f73b3b;
 }
 
 #todoList > li span {
   display: inline-block;
+  padding: 10px 0;
 }
 
 #todoList > li span br {
