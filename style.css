@@ -16,6 +16,13 @@
   display: none;
 }
 
+#todoList > li i {
+  font-family: "Font Awesome 5 Free";
+  font-size: 1em;
+  display: inline-block;
+  margin-left: 40px;
+}
+
 #todoList > li label::after {
   font-family: "Font Awesome 5 Free";
   content: var(--icon-base);

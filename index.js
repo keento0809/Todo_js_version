@@ -9,6 +9,8 @@ const allTasks = document.querySelector("li");
 
 const searchInput = document.querySelector("#searchInput");
 
+// const deleteIcon = document.querySelectorAll(".fa-trash-alt");
+
 // Build out function
 function addList(e) {
   e.preventDefault();
@@ -31,6 +33,7 @@ function editTask(e) {
 
 // Delete task (done)
 function taskDone() {
+  console.log(this);
   alert("Are you sure you've done this task?");
   todoList.removeChild(this);
 }
@@ -38,11 +41,16 @@ function taskDone() {
 // Create new li (task)
 function createNewLi(task) {
   const li = document.createElement("li");
-  const label = document.createElement("label");
-  label.textContent = task;
-  label.contentEditable = true;
-  li.append(label);
+  const span = document.createElement("span");
+  const icon = document.createElement("i");
+  span.textContent = task;
+  span.contentEditable = true;
+  icon.classList.add("far");
+  icon.classList.add("fa-trash-alt");
+  li.append(span);
+  li.append(icon);
   todoList.append(li);
+  // todoList.append(icon);
   // console.log(tasks);
   updateList(task);
 }
@@ -56,14 +64,16 @@ function getMatches(val, remainTasks) {
 
 let array = [];
 let labels;
+let icons;
 
 function updateList(task) {
   array.push(task);
   // console.log(array);
   labels = document.querySelectorAll("li");
+  icons = document.querySelectorAll(".fa-trash-alt");
   /* Temporary comment out */
-  // labels.forEach((task) => task.addEventListener("click", taskDone));
   labels.forEach((task) => task.addEventListener("input", editTask));
+  icons.forEach((icon) => icon.addEventListener("click", taskDone));
 }
 
 function displayAnswers() {

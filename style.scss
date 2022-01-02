@@ -17,6 +17,13 @@
     display: none;
   }
 
+  & i {
+    font-family: "Font Awesome 5 Free";
+    font-size: 1em;
+    display: inline-block;
+    margin-left: 40px;
+  }
+
   & label::after {
     font-family: "Font Awesome 5 Free";
     content: var(--icon-base);
