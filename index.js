@@ -36,10 +36,15 @@ function editTask(e) {
 
 // Delete task (done)
 function taskDone() {
+  // console.log(this.parentNode.querySelector("span").textContent);
   const done = this.parentNode;
-  console.log(done);
+  const doneText = this.parentNode.querySelector("span").textContent;
+  console.log(doneText);
   confirm("Are you sure you've done this task?");
   todoList.removeChild(done);
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] == doneText) array.splice(i, 1);
+  }
 }
 
 // Create new li (task)

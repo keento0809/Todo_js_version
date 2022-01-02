@@ -10,12 +10,20 @@
   padding: 0;
   margin: 0;
   font-family: var(--font-family);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  max-width: 220px;
+  margin: 0 auto;
 }
 
 input {
   display: inline-block;
-  width: 180px;
+  width: 190px;
   padding: 2px 0px 2px 5px;
+  border-color: none;
 }
 
 .main-container {
