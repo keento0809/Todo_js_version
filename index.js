@@ -142,6 +142,7 @@ function displayAnswers() {
     .join("");
   todoList.innerHTML = newHtml;
   addIconsTaskDone();
+  checkAllDoneOrNot(array);
 }
 
 // Hook up the event
