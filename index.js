@@ -130,7 +130,7 @@ function displayAnswers() {
       return `
       <li>
         <span class="highlight">${taskName}</span>
-        <i class="fa fa-trash-alt"></i>
+        <i class="far fa-trash-alt"></i>
       </li>
     `;
     })
