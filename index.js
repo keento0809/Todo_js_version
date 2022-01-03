@@ -9,7 +9,14 @@ const allTasks = document.querySelector("li");
 
 const searchInput = document.querySelector("#searchInput");
 
-// const deleteIcon = document.querySelectorAll(".fa-trash-alt");
+const completeBanner = document.querySelector(".allDone");
+console.log(completeBanner);
+
+// define variables
+let array = [];
+let labels;
+let icons;
+let isComplete = true;
 
 // Build out function
 function addList(e) {
@@ -26,7 +33,6 @@ function addList(e) {
 
 // Edit task
 function editTask(e) {
-  console.log(e);
   if (e.keyCode === 13) {
     console.log("Enter");
   }
@@ -45,17 +51,20 @@ function taskDone() {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == doneText) array.splice(i, 1);
   }
-  // allDoneNotification(array);
+  checkAllDoneOrNot(array);
 }
 
-function allDoneNotification(array) {
-  const complete = document.createElement("h2");
-  complete.textContent = "All tasks done!";
-
-  if (array.length === 0) {
-    todoList.append(complete);
-  } else if (array.length >= 1) {
-    todoList.removeChild(complete);
+function checkAllDoneOrNot(array) {
+  console.log(isComplete);
+  console.log(array.length);
+  if (array.length != undefined) {
+    isComplete = false;
+    completeBanner.classList.remove("show");
+  }
+  console.log(isComplete);
+  if (isComplete || array.length === 0) {
+    console.log("hey");
+    completeBanner.classList.add("show");
   }
 }
 
@@ -78,7 +87,7 @@ function createNewLi(task) {
   li.append(icon);
   todoList.append(li);
   updateList(task);
-  console.log(array.length);
+  checkAllDoneOrNot(array);
 }
 
 function getMatches(val, remainTasks) {
@@ -88,10 +97,6 @@ function getMatches(val, remainTasks) {
   });
 }
 
-let array = [];
-let labels;
-let icons;
-
 function updateList(task) {
   array.push(task);
   console.log(array.length);
@@ -100,7 +105,7 @@ function updateList(task) {
   /* Temporary comment out */
   // labels.forEach((task) => task.addEventListener("keyup", editTask));
   // icons.forEach((icon) => icon.addEventListener("click", taskDone));
-  addSpanEditTask();
+  // addSpanEditTask();
   addIconsTaskDone();
 }
 
@@ -145,3 +150,5 @@ addTodo.addEventListener("submit", addList);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
+
+window.addEventListener("DOMContentLoaded", checkAllDoneOrNot);

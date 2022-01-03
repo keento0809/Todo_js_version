@@ -35,15 +35,28 @@ input {
   font-size: 1.2em;
 }
 
+.todoList-title {
+  margin-top: 20px;
+}
+
+.todoList-title h2,
+.todoList-title h3 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.todoList-title .allDone {
+  display: none;
+}
+
+.todoList-title .allDone.show {
+  display: block;
+}
+
 #todoList {
   list-style: none;
   max-width: 200px;
   margin: 40px auto;
-}
-
-#todoList h2 {
-  margin-bottom: 20px;
-  text-align: center;
 }
 
 #todoList > li {

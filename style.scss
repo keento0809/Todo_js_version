@@ -39,18 +39,28 @@ input {
   font-size: 1.2em;
 }
 
-#todoList {
-  list-style: none;
-  max-width: 200px;
-  margin: 40px auto;
+.todoList-title {
+  margin-top: 20px;
 
-  & h2 {
+  & h2,
+  & h3 {
     margin-bottom: 20px;
     text-align: center;
   }
 
-  & p {
+  & .allDone {
+    display: none;
+
+    &.show {
+      display: block;
+    }
   }
+}
+
+#todoList {
+  list-style: none;
+  max-width: 200px;
+  margin: 40px auto;
 }
 
 #todoList > li {
