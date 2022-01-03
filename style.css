@@ -57,7 +57,7 @@ input {
       -ms-flex-pack: justify;
           justify-content: space-between;
   border: 1px solid var(--borderColor);
-  padding: 0 10px;
+  padding: 10px 10px;
   margin-bottom: 10px;
   -webkit-box-shadow: 2px 2px 4px 0.2px #f73b3b;
           box-shadow: 2px 2px 4px 0.2px #f73b3b;
@@ -65,10 +65,6 @@ input {
 
 #todoList > li span {
   display: inline-block;
-}
-
-#todoList > li span.highlight {
-  padding: 10px 0;
 }
 
 #todoList > li span br {

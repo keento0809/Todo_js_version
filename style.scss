@@ -58,16 +58,12 @@ input {
   align-items: center;
   justify-content: space-between;
   border: 1px solid var(--borderColor);
-  padding: 0 10px;
+  padding: 10px 10px;
   margin-bottom: 10px;
   box-shadow: 2px 2px 4px 0.2px #f73b3b;
 
   & span {
     display: inline-block;
-
-    &.highlight {
-      padding: 10px 0;
-    }
   }
 
   & span br {
