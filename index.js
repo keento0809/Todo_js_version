@@ -133,7 +133,7 @@ function displayAnswers() {
       );
       return `
       <li>
-        <span class="highlight" contentEditable="true">${taskName}</span>
+        <span class="highlight" contenteditable="true">${taskName}</span>
         <i class="far fa-trash-alt"></i>
       </li>
     `;
