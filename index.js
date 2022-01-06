@@ -139,7 +139,7 @@ function displayAnswers() {
     `;
     })
     .join("");
-  console.log(newHtml);
+  // console.log(newHtml);
   todoList.innerHTML = newHtml;
   addIconsTaskDone();
   checkAllDoneOrNot(array);
