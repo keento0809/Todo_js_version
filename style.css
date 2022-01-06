@@ -26,14 +26,14 @@ body {
 }
 
 .container {
-  max-width: 220px;
+  max-width: 300px;
   margin: 0 auto;
   padding-top: 40px;
 }
 
 input {
   display: inline-block;
-  width: 200px;
+  width: 100%;
   padding: 0.1em 0.5em;
   line-height: 3;
   border-color: none;
@@ -91,7 +91,7 @@ input:focus {
 
 #todoList {
   list-style: none;
-  max-width: 200px;
+  max-width: 300px;
   margin: 40px auto;
 }
 
