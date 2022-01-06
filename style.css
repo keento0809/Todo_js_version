@@ -1,9 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@500&display=swap");
 :root {
   --icon-base: "\f2ed";
   --background: rgba(248, 231, 131, 0.918);
-  --borderColor: #ffdbdb;
+  --borderColor: #20f318;
+  --iconColor: #20f318;
   --font-family: "Mukta", sans-serif;
+  --titleFont-family: "Anton", sans-serif;
+  --titleLetter-spacing: 0.8px;
+  --textColor: #09234a;
 }
 
 * {
@@ -12,31 +17,55 @@
   font-family: var(--font-family);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  color: var(--textColor);
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(#7bb6ed, #0952cd);
 }
 
 .container {
   max-width: 220px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
 input {
   display: inline-block;
-  width: 190px;
-  padding: 2px 0px 2px 5px;
+  width: 200px;
+  padding: 0.1em 0.5em;
+  line-height: 3;
   border-color: none;
+}
+
+input:focus {
+  outline: none;
 }
 
 .main-container {
   text-align: center;
 }
 
-.inputTask {
-  display: block;
-  font-size: 1.2em;
+.main-container #title {
+  padding-bottom: 20px;
+  font-family: var(--titleFont-family);
+  letter-spacing: var(--titleLetter-spacing);
 }
 
-.todoList-title {
-  margin-top: 20px;
+.main-container #searchInput {
+  margin-bottom: 20px;
+}
+
+.todoForm {
+  padding-bottom: 40px;
+}
+
+.todoForm .inputTask {
+  display: block;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: antiquewhite;
 }
 
 .todoList-title h2,
@@ -45,8 +74,15 @@ input {
   text-align: center;
 }
 
+.todoList-title h2 {
+  font-family: var(--titleFont-family);
+  letter-spacing: var(--titleLetter-spacing);
+}
+
 .todoList-title .allDone {
   display: none;
+  font-family: var(--titleFont-family);
+  letter-spacing: var(--titleLetter-spacing);
 }
 
 .todoList-title .allDone.show {
@@ -72,12 +108,17 @@ input {
   border: 1px solid var(--borderColor);
   padding: 10px 10px;
   margin-bottom: 10px;
-  -webkit-box-shadow: 2px 2px 4px 0.2px #f73b3b;
-          box-shadow: 2px 2px 4px 0.2px #f73b3b;
+  opacity: 0.8;
+  -webkit-box-shadow: 2px 2px 4px 0.2px #20f318;
+          box-shadow: 2px 2px 4px 0.2px #20f318;
 }
 
 #todoList > li span {
   display: inline-block;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  font-weight: bold;
 }
 
 #todoList > li span br {
@@ -105,6 +146,6 @@ input {
 }
 
 .fa-trash-alt {
-  color: #cc1735;
+  color: var(--iconColor);
 }
 /*# sourceMappingURL=style.css.map */

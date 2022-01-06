@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Mukta:wght@500&display=swap");
 
 :root {
   --icon-base: "\f2ed";
   --background: rgba(248, 231, 131, 0.918);
-  --borderColor: #ffdbdb;
+  --borderColor: #20f318;
+  --iconColor: #20f318;
   --font-family: "Mukta", sans-serif;
+  --titleFont-family: "Anton", sans-serif;
+  --titleLetter-spacing: 0.8px;
+  --textColor: #09234a;
 }
 
 * {
@@ -13,34 +18,59 @@
   font-family: var(--font-family);
   box-sizing: border-box;
   // text-align: center;
+  color: var(--textColor);
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(#7bb6ed, #0952cd);
 }
 
 .container {
   max-width: 220px;
   margin: 0 auto;
+  padding-top: 40px;
 }
 
 input {
   display: inline-block;
-  width: 190px;
-  padding: 2px 0px 2px 5px;
+  width: 200px;
+  padding: 0.1em 0.5em;
+  line-height: 3;
   border-color: none;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .main-container {
   text-align: center;
 
-  & > h1 {
+  & #title {
+    padding-bottom: 20px;
+    font-family: var(--titleFont-family);
+    letter-spacing: var(--titleLetter-spacing);
+  }
+
+  & #searchInput {
+    margin-bottom: 20px;
   }
 }
 
-.inputTask {
-  display: block;
-  font-size: 1.2em;
+.todoForm {
+  padding-bottom: 40px;
+
+  & .inputTask {
+    display: block;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: antiquewhite;
+  }
 }
 
 .todoList-title {
-  margin-top: 20px;
+  // margin-top: 20px;
 
   & h2,
   & h3 {
@@ -48,8 +78,15 @@ input {
     text-align: center;
   }
 
+  & h2 {
+    font-family: var(--titleFont-family);
+    letter-spacing: var(--titleLetter-spacing);
+  }
+
   & .allDone {
     display: none;
+    font-family: var(--titleFont-family);
+    letter-spacing: var(--titleLetter-spacing);
 
     &.show {
       display: block;
@@ -70,10 +107,14 @@ input {
   border: 1px solid var(--borderColor);
   padding: 10px 10px;
   margin-bottom: 10px;
-  box-shadow: 2px 2px 4px 0.2px #f73b3b;
+  // background: #fff;
+  opacity: 0.8;
+  box-shadow: 2px 2px 4px 0.2px #20f318;
 
   & span {
     display: inline-block;
+    flex-grow: 2;
+    font-weight: bold;
   }
 
   & span br {
@@ -102,5 +143,5 @@ input {
 }
 
 .fa-trash-alt {
-  color: rgb(204, 23, 53);
+  color: var(--iconColor);
 }

@@ -10,7 +10,6 @@ const allTasks = document.querySelector("li");
 const searchInput = document.querySelector("#searchInput");
 
 const completeBanner = document.querySelector(".allDone");
-console.log(completeBanner);
 
 // define variables
 let array = [];
@@ -55,15 +54,15 @@ function taskDone() {
 }
 
 function checkAllDoneOrNot(array) {
-  console.log(isComplete);
-  console.log(array.length);
+  // console.log(isComplete);
+  // console.log(array.length);
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
-  console.log(isComplete);
+  // console.log(isComplete);
   if (isComplete || array.length === 0) {
-    console.log("hey");
+    console.log("it works");
     completeBanner.classList.add("show");
   }
 }
@@ -140,6 +139,7 @@ function displayAnswers() {
     `;
     })
     .join("");
+  console.log(newHtml);
   todoList.innerHTML = newHtml;
   addIconsTaskDone();
   checkAllDoneOrNot(array);
