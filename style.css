@@ -35,6 +35,7 @@ input {
   display: inline-block;
   width: 100%;
   padding: 0.1em 0.5em;
+  margin-bottom: 20px;
   line-height: 3;
   border-color: none;
 }
@@ -53,10 +54,6 @@ input:focus {
   letter-spacing: var(--titleLetter-spacing);
 }
 
-.main-container #searchInput {
-  margin-bottom: 20px;
-}
-
 .todoForm {
   padding-bottom: 40px;
 }
@@ -66,6 +63,18 @@ input:focus {
   font-size: 1.2em;
   font-weight: bold;
   color: antiquewhite;
+}
+
+#submitBtn {
+  display: inline-block;
+  border: 2px solid #20f318;
+  background: initial;
+  outline: none;
+  padding: 2px 16px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  color: inherit;
 }
 
 .todoList-title h2,
@@ -105,7 +114,7 @@ input:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 1px solid var(--borderColor);
+  border: 2px solid var(--borderColor);
   padding: 10px 10px;
   margin-bottom: 10px;
   opacity: 0.8;
@@ -147,5 +156,11 @@ input:focus {
 
 .fa-trash-alt {
   color: var(--iconColor);
+}
+
+@media screen and (min-width: 1025px) {
+  #submitBtn {
+    display: none;
+  }
 }
 /*# sourceMappingURL=style.css.map */
