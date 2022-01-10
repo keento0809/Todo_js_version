@@ -55,6 +55,7 @@ function taskDone() {
 
 // Check all tasks are done or not
 function checkAllDoneOrNot(array) {
+  array = JSON.parse(localStorage.getItem("array"));
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
@@ -66,6 +67,7 @@ function checkAllDoneOrNot(array) {
 
 // display array
 function populateList(array) {
+  console.log("Work....");
   array = JSON.parse(localStorage.getItem("array"));
   checkAllDoneOrNot(array);
   todoList.innerHTML = array
@@ -130,4 +132,5 @@ addTodo.addEventListener("submit", addList);
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
+console.log(array);
 populateList(array);
