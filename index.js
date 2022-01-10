@@ -109,12 +109,8 @@ function addIconsTaskDone() {
 
 function displayAnswers() {
   const val = this.value;
-  console.log(val);
-  // array = JSON.parse(localStorage.getItem("array"));
   checkArray(array);
   const searchResult = getMatches(val, array);
-
-  console.log(searchResult);
 
   const newHtml = searchResult
     .map((task) => {
