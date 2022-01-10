@@ -43,8 +43,10 @@ function addList(e) {
 function taskDone() {
   const done = this.parentNode;
   const doneText = this.parentNode.querySelector("span").textContent;
-  confirm("Are you sure you've done this task?");
-  todoList.removeChild(done);
+  const req = confirm("Are you sure you've done this task?");
+  if (req) {
+    todoList.removeChild(done);
+  }
   for (let i = 0; i < array.length; i++) {
     if (array[i] == doneText) array.splice(i, 1);
   }
