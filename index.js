@@ -13,7 +13,7 @@ const completeBanner = document.querySelector(".allDone");
 
 // define variables
 // test localStorage
-let array = [] || JSON.parse(localStorage.getItem("array"));
+let array = JSON.parse(localStorage.getItem("array"));
 let labels;
 let icons;
 let isComplete = true;
@@ -139,4 +139,5 @@ searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
 console.log(array.length);
+checkArray(array);
 populateList(array);
