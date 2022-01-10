@@ -30,7 +30,7 @@ function addList(e) {
     alert("Error! Enter your task correctly!");
     return;
   }
-  array = JSON.parse(localStorage.getItem("array"));
+  checkArray(array);
   updateList(newTask.text);
   // test
   localStorage.setItem("array", JSON.stringify(array));
@@ -110,7 +110,8 @@ function addIconsTaskDone() {
 function displayAnswers() {
   const val = this.value;
   console.log(val);
-  array = JSON.parse(localStorage.getItem("array"));
+  // array = JSON.parse(localStorage.getItem("array"));
+  checkArray(array);
   const searchResult = getMatches(val, array);
 
   console.log(searchResult);
