@@ -67,7 +67,6 @@ function checkAllDoneOrNot(array) {
 
 // display array
 function populateList(array) {
-  console.log("Work....");
   array = JSON.parse(localStorage.getItem("array"));
   checkAllDoneOrNot(array);
   todoList.innerHTML = array
@@ -132,5 +131,5 @@ addTodo.addEventListener("submit", addList);
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
-console.log(array);
+console.log(array.length);
 populateList(array);
