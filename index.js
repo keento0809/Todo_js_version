@@ -55,9 +55,7 @@ function taskDone() {
 
 // Check all tasks are done or not
 function checkAllDoneOrNot(array) {
-  array = JSON.parse(localStorage.getItem("array"));
-  console.log(array);
-  console.log(array.length);
+  checkArray(array);
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
@@ -67,9 +65,19 @@ function checkAllDoneOrNot(array) {
   }
 }
 
+function checkArray(array) {
+  if (array.length == 0) {
+    array = [];
+    return array;
+  } else {
+    array = JSON.parse(localStorage.getItem("array"));
+    return array;
+  }
+}
+
 // display array
 function populateList(array) {
-  array = JSON.parse(localStorage.getItem("array"));
+  checkArray(array);
   checkAllDoneOrNot(array);
   todoList.innerHTML = array
     .map((task) => {
