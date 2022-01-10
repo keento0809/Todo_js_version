@@ -56,6 +56,8 @@ function taskDone() {
 // Check all tasks are done or not
 function checkAllDoneOrNot(array) {
   array = JSON.parse(localStorage.getItem("array"));
+  console.log(array);
+  console.log(array.length);
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
