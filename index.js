@@ -139,7 +139,7 @@ function displayAnswers() {
 
 // Hook up the event
 addTodo.addEventListener("submit", addList);
-submitBtn.addEventListener("onclick", addList);
+submitBtn.addEventListener("ontouchend", addList);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
