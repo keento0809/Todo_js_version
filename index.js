@@ -11,6 +11,8 @@ const searchInput = document.querySelector("#searchInput");
 
 const completeBanner = document.querySelector(".allDone");
 
+const submitBtn = document.querySelector("#submitBtn");
+
 // define variables
 // test localStorage
 let array = JSON.parse(localStorage.getItem("array"));
@@ -137,6 +139,7 @@ function displayAnswers() {
 
 // Hook up the event
 addTodo.addEventListener("submit", addList);
+submitBtn.addEventListener("onclick", addList);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
