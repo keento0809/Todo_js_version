@@ -27,24 +27,21 @@ function addList(e) {
   };
   tasks.push(newTask);
   createNewLi(newTask.text);
-  todoInput.value = "";
+  console.log(this);
+  this.reset();
 }
 
 // Edit task
-function editTask(e) {
-  if (e.keyCode === 13) {
-    console.log("Enter");
-  }
-  // const newText = this.querySelector("label").textContent;
-  // console.log(newText);
-}
+// function editTask(e) {
+//   if (e.keyCode === 13) {
+//     console.log("Enter");
+//   }
+// }
 
 // Delete task (done)
 function taskDone() {
-  // console.log(this.parentNode.querySelector("span").textContent);
   const done = this.parentNode;
   const doneText = this.parentNode.querySelector("span").textContent;
-  console.log(doneText);
   confirm("Are you sure you've done this task?");
   todoList.removeChild(done);
   for (let i = 0; i < array.length; i++) {
@@ -54,13 +51,10 @@ function taskDone() {
 }
 
 function checkAllDoneOrNot(array) {
-  // console.log(isComplete);
-  // console.log(array.length);
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
-  // console.log(isComplete);
   if (isComplete || array.length === 0) {
     console.log("it works");
     completeBanner.classList.add("show");
@@ -69,7 +63,6 @@ function checkAllDoneOrNot(array) {
 
 // Create new li (task)
 function createNewLi(task) {
-  // allDoneNotification(array);
   const li = document.createElement("li");
   const span = document.createElement("span");
   const icon = document.createElement("i");
@@ -98,13 +91,6 @@ function getMatches(val, remainTasks) {
 
 function updateList(task) {
   array.push(task);
-  console.log(array.length);
-  // labels = document.querySelectorAll("li");
-  // icons = document.querySelectorAll(".fa-trash-alt");
-  /* Temporary comment out */
-  // labels.forEach((task) => task.addEventListener("keyup", editTask));
-  // icons.forEach((icon) => icon.addEventListener("click", taskDone));
-  // addSpanEditTask();
   addIconsTaskDone();
 }
 
@@ -139,7 +125,6 @@ function displayAnswers() {
     `;
     })
     .join("");
-  // console.log(newHtml);
   todoList.innerHTML = newHtml;
   addIconsTaskDone();
   checkAllDoneOrNot(array);
@@ -147,7 +132,6 @@ function displayAnswers() {
 
 // Hook up the event
 addTodo.addEventListener("submit", addList);
-// todoInput.addEventListener("change", updateList);
 
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
