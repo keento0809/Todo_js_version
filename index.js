@@ -89,6 +89,7 @@ function populateList(array) {
     `;
     })
     .join("");
+  addIconsTaskDone();
 }
 
 function getMatches(val, remainTasks) {
