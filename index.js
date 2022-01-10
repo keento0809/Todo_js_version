@@ -12,7 +12,8 @@ const searchInput = document.querySelector("#searchInput");
 const completeBanner = document.querySelector(".allDone");
 
 // define variables
-let array = [];
+// test localStorage
+let array = [] || JSON.parse(localStorage.getItem("array"));
 let labels;
 let icons;
 let isComplete = true;
@@ -25,18 +26,18 @@ function addList(e) {
     text,
     done: false,
   };
-  tasks.push(newTask);
-  createNewLi(newTask.text);
-  console.log(this);
+  if (newTask.text == "") {
+    alert("Error! Enter your task correctly!");
+    return;
+  }
+  array = JSON.parse(localStorage.getItem("array"));
+  updateList(newTask.text);
+  // test
+  localStorage.setItem("array", JSON.stringify(array));
+  populateList(array);
+  addIconsTaskDone();
   this.reset();
 }
-
-// Edit task
-// function editTask(e) {
-//   if (e.keyCode === 13) {
-//     console.log("Enter");
-//   }
-// }
 
 // Delete task (done)
 function taskDone() {
@@ -47,39 +48,36 @@ function taskDone() {
   for (let i = 0; i < array.length; i++) {
     if (array[i] == doneText) array.splice(i, 1);
   }
+  // test localStorage
+  localStorage.setItem("array", JSON.stringify(array));
   checkAllDoneOrNot(array);
 }
 
+// Check all tasks are done or not
 function checkAllDoneOrNot(array) {
   if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
   if (isComplete || array.length === 0) {
-    console.log("it works");
     completeBanner.classList.add("show");
   }
 }
 
-// Create new li (task)
-function createNewLi(task) {
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  const icon = document.createElement("i");
-  span.textContent = task;
-  if (span.textContent == "") {
-    alert("Error! Enter your task correctly!");
-    return;
-  }
-  span.contentEditable = true;
-  span.classList.add("highlight");
-  icon.classList.add("far");
-  icon.classList.add("fa-trash-alt");
-  li.append(span);
-  li.append(icon);
-  todoList.append(li);
-  updateList(task);
+// display array
+function populateList(array) {
+  array = JSON.parse(localStorage.getItem("array"));
   checkAllDoneOrNot(array);
+  todoList.innerHTML = array
+    .map((task) => {
+      return `
+      <li>
+        <span class="highlight" contenteditable="true">${task}</span>
+        <i class="far fa-trash-alt"></i>
+      </li>
+    `;
+    })
+    .join("");
 }
 
 function getMatches(val, remainTasks) {
@@ -91,12 +89,6 @@ function getMatches(val, remainTasks) {
 
 function updateList(task) {
   array.push(task);
-  addIconsTaskDone();
-}
-
-function addSpanEditTask() {
-  const labels = document.querySelectorAll("li");
-  labels.forEach((task) => task.addEventListener("keyup", editTask));
 }
 
 function addIconsTaskDone() {
@@ -106,6 +98,8 @@ function addIconsTaskDone() {
 
 function displayAnswers() {
   const val = this.value;
+  console.log(val);
+  array = JSON.parse(localStorage.getItem("array"));
   const searchResult = getMatches(val, array);
 
   console.log(searchResult);
@@ -136,4 +130,4 @@ addTodo.addEventListener("submit", addList);
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
-window.addEventListener("DOMContentLoaded", checkAllDoneOrNot);
+populateList(array);
