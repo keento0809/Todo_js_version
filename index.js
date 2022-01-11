@@ -104,6 +104,7 @@ function getMatches(val, remainTasks) {
 }
 
 function updateList(task) {
+  if (array === null) array = [];
   array.push(task);
 }
 
