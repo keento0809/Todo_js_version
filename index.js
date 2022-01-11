@@ -31,8 +31,6 @@ function addList(e) {
   if (newTask.text == "") {
     alert("Error! Enter your task correctly!");
     return;
-  } else {
-    alert("Good job man");
   }
   checkArray(array);
   updateList(newTask.text);
@@ -65,7 +63,8 @@ function checkAllDoneOrNot(array) {
   console.log(array);
   if (array === null || isComplete || array.length === 0) {
     completeBanner.classList.add("show");
-  } else if (array.length != undefined) {
+  }
+  if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
@@ -86,6 +85,7 @@ function checkArray(array) {
 function populateList(array) {
   checkArray(array);
   checkAllDoneOrNot(array);
+  if (array === null) array = [];
   todoList.innerHTML = array
     .map((task) => {
       return `
