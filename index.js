@@ -146,6 +146,5 @@ submitBtn.addEventListener("ontouchend", addList);
 searchInput.addEventListener("change", displayAnswers);
 searchInput.addEventListener("keyup", displayAnswers);
 
-console.log(array.length);
 checkArray(array);
 populateList(array);
