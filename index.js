@@ -60,19 +60,16 @@ function taskDone() {
 // Check all tasks are done or not
 function checkAllDoneOrNot(array) {
   checkArray(array);
-  console.log(array.length);
   if (array === null || array.length === 0) {
-    console.log("Why?");
     completeBanner.classList.add("show");
   } else if (array.length != 0) {
-    // if (array != null) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
 }
 
 function checkArray(array) {
-  if (array == null || array.length == 0) {
+  if (array === null || array.length == 0) {
     array = [];
     console.log(array);
     return array;
