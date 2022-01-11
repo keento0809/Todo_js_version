@@ -72,7 +72,7 @@ function checkAllDoneOrNot(array) {
 }
 
 function checkArray(array) {
-  if (array.length == 0) {
+  if (array == null || array.length == 0) {
     array = [];
     return array;
   } else {
