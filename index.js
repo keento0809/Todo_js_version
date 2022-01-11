@@ -63,10 +63,9 @@ function taskDone() {
 function checkAllDoneOrNot(array) {
   checkArray(array);
   console.log(array);
-  if (array == null || isComplete || array.length === 0) {
+  if (array === null || isComplete || array.length === 0) {
     completeBanner.classList.add("show");
-  }
-  if (array.length != undefined) {
+  } else if (array.length != undefined) {
     isComplete = false;
     completeBanner.classList.remove("show");
   }
