@@ -75,6 +75,7 @@ function checkAllDoneOrNot(array) {
 function checkArray(array) {
   if (array == null || array.length == 0) {
     array = [];
+    console.log(array);
     return array;
   } else {
     array = JSON.parse(localStorage.getItem("array"));
