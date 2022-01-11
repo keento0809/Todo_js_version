@@ -48,9 +48,9 @@ function taskDone() {
   const req = confirm("Are you sure you've done this task?");
   if (req) {
     todoList.removeChild(done);
-  }
-  for (let i = 0; i < array.length; i++) {
-    if (array[i] == doneText) array.splice(i, 1);
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] == doneText) array.splice(i, 1);
+    }
   }
   // test localStorage
   localStorage.setItem("array", JSON.stringify(array));
