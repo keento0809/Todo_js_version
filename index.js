@@ -31,6 +31,8 @@ function addList(e) {
   if (newTask.text == "") {
     alert("Error! Enter your task correctly!");
     return;
+  } else {
+    alert("Good job man");
   }
   checkArray(array);
   updateList(newTask.text);
