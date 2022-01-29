@@ -13,6 +13,10 @@
   --textColor: #09234a;
 }
 
+html {
+  height: auto;
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -23,8 +27,11 @@
 }
 
 body {
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   background: radial-gradient(#7bb6ed, #0952cd);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
