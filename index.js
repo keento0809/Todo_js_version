@@ -24,16 +24,17 @@ let isComplete = true;
 function addList(e) {
   e.preventDefault();
   const text = todoInput.value;
-  const newTask = {
-    text,
-    done: false,
-  };
-  if (newTask.text == "") {
+  // const newTask = {
+  //   text,
+  //   done: false,
+  // };
+  const newTask = text;
+  if (newTask == "") {
     alert("Error! Enter your task correctly!");
     return;
   }
   checkArray(array);
-  updateList(newTask.text);
+  updateList(newTask);
   // test
   localStorage.setItem("array", JSON.stringify(array));
   populateList(array);
