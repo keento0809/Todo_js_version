@@ -24,10 +24,6 @@ let isComplete = true;
 function addList(e) {
   e.preventDefault();
   const text = todoInput.value;
-  // const newTask = {
-  //   text,
-  //   done: false,
-  // };
   const newTask = text;
   if (newTask == "") {
     alert("Error! Enter your task correctly!");
